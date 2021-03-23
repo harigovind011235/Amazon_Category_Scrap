@@ -25,14 +25,15 @@ for div in soup.select('.popover-grouping'):
                     'categorylinks':categorylinks}
 
     categories.append(categorydict)       #appending each dictionary to a list
-    writemyjson(categories)
+    writemyjson(categories)               #calling the function to write as json
 
 
 
     main_category_links.append(categorylinks)   #making a list for make further requests
-    # for subcategry in main_category_links:    # making requests to each category link
-    #     mysubhtml = requests.get(subcategry)
-    #     mysubhtml2 = BeautifulSoup(mysubhtml.text,'lxml')
-    #     print(mysubhtml2)
+    
+    for subcategry in main_category_links:    # making requests to each category link
+        mysubhtml = requests.get(subcategry)
+        mysubhtml2 = BeautifulSoup(mysubhtml.text,'lxml')
+        print(mysubhtml2)
 
 
